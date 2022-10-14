@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    # アソシエーション関係記述？アプリ2、15
+    @books = @user.books
   end
 
   def edit
@@ -15,4 +17,11 @@ class UsersController < ApplicationController
     # 編集成功時へ
     redirect_to book_path(@book.id)
   end
+
+  def index
+    @user = User.all
+    @book = Book.new
+  end
+
+
 end

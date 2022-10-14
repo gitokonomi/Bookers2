@@ -1,43 +1,23 @@
 <!--部分テンプレート-->
-<!-- %= render 'newbook', book: @book %>-->
-
-<h2>User info</h2>
-<!--画像-->
-<!--name -->
-<!--自己紹介-->
-
-<!--editボタン-->
-
-
-<h2>New book</h2>
-
-<%= form_with model: @book do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
-
-<% end %>
-
-<!--部分テンプレートここまで-->
-
+ <%= render 'newbook', {book: @book , user: @user} %>
 
 
 
 <!--投稿一覧-->
-<h2>index</h2>
+<h2>Books</h2>
+
+<!--フラッシュメッセージ-->
+<div>
+  <%= flash[:notice] %>
+<div>
 
 <% @books.each do |book| %>
 <div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
+  <!--%= link_to book_path(book.id) do %>-->
+    <!--%= image_tag book.get_image %>-->
+  <!--% end %>-->
   <!--タイトル-->
-  <p><%= book.name %></p>
+  <p><%= book.title %></p>
   <!--内容-->
   <p><%= book.body %></p>
   <!--本画像-->
