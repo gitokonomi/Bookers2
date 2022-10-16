@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
     @book.user_id = current_user.id
     @book.save
-    flash[:notice]="You have created book successfully."
+    flash[:notice] = "You have created book successfully."
     redirect_to book_path(@book.id)
   end
 
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.delete
-    flash[:notice] = "Book was successfully destroyed."
+    flash[:alert] = "Book was successfully destroyed."
     redirect_to books_path
   end
 

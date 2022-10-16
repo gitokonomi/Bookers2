@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
 
+  before_action :authenticate_user!, except: [:top, :about]
   # devise利用の機能前に下記メソッド
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sigh_in_path_for(resource)
-    user_path(resource)
+    user_path
   end
 
   def after_sigh_out_path_for(resource)
