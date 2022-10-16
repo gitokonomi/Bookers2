@@ -6,22 +6,15 @@
 <!--投稿一覧-->
 <h2>Books</h2>
 
-<!--フラッシュメッセージ-->
-<div>
-  <%= flash[:notice] %>
-<div>
 
 <% @books.each do |book| %>
 <div>
-  <!--%= link_to book_path(book.id) do %>-->
-    <!--%= image_tag book.get_image %>-->
-  <!--% end %>-->
   <!--タイトル-->
   <p><%= book.title %></p>
   <!--内容-->
   <p><%= book.body %></p>
-  <!--本画像-->
-  <p><%= link_to image_tag('sample-author1.jpg', size: "200x200"), book_path(book.id) %></p>
+  <!--ユーザー画像-->
+  <p><%= link_to image_tag(book.user.get_profile_image(100,100)), book_path(book.id) %></p>
 
 </div>
 <% end %>

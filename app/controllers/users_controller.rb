@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    # アソシエーション関係記述？アプリ2、15
+    # 部分テンプレート用
+    @user = current_user
+    @book = Book.new
+
+    # アソシエーション関係記述、特定ユーザの投稿
+    # @user = User.find(params[:id])
     @books = @user.books
   end
 
@@ -11,16 +15,28 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(params[:id])
+    # if
+    @user.update(user_params)
     # 編集成功時フラッシュメッセージ
-    flash[:notice] = "User was successfully updated."
-    # 編集成功時へ
-    redirect_to book_path(@book.id)
+    flash[:notice] = "You have updated user successfully."
+    redirect_to user_path(@user.id)
+    # else
+    # render :edit
+    # end
   end
 
   def index
-    @user = User.all
+    @users =User.all
     @book = Book.new
+        # 部分テンプレート用
+    @user = current_user
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image)
   end
 
 

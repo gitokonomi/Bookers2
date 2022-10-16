@@ -1,14 +1,26 @@
-<!--コピペ-->
+<!--部分テンプレート-->
+<%= render 'books/newbook', {book: @book , user: @user} %>
 
-<!-- ユーザーの詳細 -->
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-    <!-- link_to "プロフィール編集", edit_user_path(@user.id) -->
-  <% end %>
-</div>
 
 <!-- ユーザーの投稿一覧 -->
-<!--%= render 'post_images/list', post_images: @post_images %>-->
+<p>Books</p>
+
+<p>Title</p>
+<p>Opinion</p>
+
+
+<% @books.each do |book| %>
+<div>
+  <!--投稿本image-->
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+  <% end %>
+
+  <!--タイトル＿本詳細リンク-->
+  <%= link_to book.title , book_path(book.id) %></p>
+
+  <!--投稿本文-->
+  <p><%= book.body %></p>
+
+</div>
+<% end %>

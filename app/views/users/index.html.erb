@@ -1,3 +1,23 @@
 <!--部分テンプレート-->
  <%= render 'books/newbook', {book: @book , user: @user} %>
 
+
+<h2>Users</h2>
+
+<!--フラッシュメッセージ-->
+<!--<div>-->
+  <!--%= flash[:notice] %>-->
+<!--<div>-->
+
+
+<% @users.each do |user| %>
+  <div>
+    <p>image</p>
+    <p><%= image_tag user.get_profile_image(100,100) %><p/>
+
+    <p>name</p>
+    <p><%= user.name %></p>
+
+    <p><%= link_to "show", user_path(user.id) %></p>
+  </div>
+<% end %>

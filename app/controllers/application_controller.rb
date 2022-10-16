@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+
   # devise利用の機能前に下記メソッド
   before_action :configure_permitted_parameters, if: :devise_controller?
 

@@ -1,2 +1,31 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<!--フラッシュメッセージ-->
+<div>
+  <%= flash[:notice] %>
+<div>
+
+
+<!--部分テンプレート-->
+<%= render 'books/newbook', {book: @booknew , user: @usercurrent} %>
+
+
+<p>Book detail</p>
+
+
+<!--プロフ画像とリンク-->
+  <%= link_to book_path(@book) do %>
+    <%= image_tag @user.get_profile_image(100,100) %>
+  <% end %>
+<!--ユザ名前-->
+  <!--%= @user.name %>-->
+<!--本タイトル-->
+    <%= @book.title %>
+<!--本本文-->
+    <%= @book.body %>
+
+<% if @book.user_id == current_user.id %>
+  <!--Editボタン-->
+  <%= link_to "Edit", edit_book_path(@book) %>
+  <!--Destroyボタン-->
+  <%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "削除しますか？"} %>
+<% end %>
+
