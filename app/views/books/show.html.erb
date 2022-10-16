@@ -12,15 +12,15 @@
 
 
 <!--プロフ画像とリンク-->
-  <%= link_to book_path(@book) do %>
-    <%= image_tag @user.get_profile_image(100,100) %>
-  <% end %>
+<%= link_to book_path(@book) do %>
+  <%= image_tag @user.get_profile_image(100,100) %>
+<% end %>
 <!--ユザ名前-->
-  <!--%= @user.name %>-->
+  <%= @user.name %>
 <!--本タイトル-->
-    <%= @book.title %>
+  <%= @book.title %>
 <!--本本文-->
-    <%= @book.body %>
+  <%= @book.body %>
 
 <% if @book.user_id == current_user.id %>
   <!--Editボタン-->
