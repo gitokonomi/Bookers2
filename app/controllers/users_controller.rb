@@ -15,14 +15,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # if
-    @user.update(user_params)
-    # 編集成功時フラッシュメッセージ
-    flash[:notice] = "You have updated user successfully."
-    redirect_to user_path(@user.id)
-    # else
-    # render :edit
-    # end
+    if @user.update(user_params)
+      # 編集成功時フラッシュメッセージ
+      # flash[:notice] = "You have updated user successfully."
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
   def index
