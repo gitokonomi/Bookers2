@@ -47,15 +47,10 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    # if
     @book.update(book_params)
-    # 編集成功時フラッシュメッセージ
-    flash[:notice] = "You have updated user successfully."
     redirect_to book_path(@book.id)
 
   end
-
-
 
     private
   def book_params
