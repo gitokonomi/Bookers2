@@ -12,7 +12,7 @@
 <% @books.each do |book| %>
 <div>
   <!--投稿本image-->
-  <%= link_to book_path(book.id) do %>
+  <%= link_to user_path(book.user_id) do %>
     <%= image_tag @user.get_profile_image(100,100) %>
   <% end %>
 
