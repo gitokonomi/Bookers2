@@ -12,13 +12,13 @@
 
 
 <!--プロフ画像とリンク-->
-<%= link_to book_path(@book) do %>
+<%= link_to user_path(@book.user) do %>
   <%= image_tag @user.get_profile_image(100,100) %>
 <% end %>
 <!--ユザ名前-->
-  <%= @user.name %>
+  <%= link_to @user.name, user_path(@book.user) %>
 <!--本タイトル-->
-  <%= @book.title %>
+  <%= link_to @book.title, book_path(@book) %>
 <!--本本文-->
   <%= @book.body %>
 

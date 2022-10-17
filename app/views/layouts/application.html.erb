@@ -31,7 +31,7 @@
             <!--ナビメニュー内容-->
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'Homes', root_path, class: 'nav-link text-dark' %>
+                <%= link_to 'Homes', user_path(current_user), class: 'nav-link text-dark' %>
                 <!--(current_user.id)-->
               </li>
 
