@@ -12,19 +12,19 @@
   <p><%= user.introduction %></p>
 
   <!--プロフィール編集-->
-  <% if user == current_user %>
+  <!--% if user == current_user %>-->
     <p>
       <%= link_to edit_user_path(user), class: "btn btn-secondary" do %>
         <i class="fa-solid fa-user-gear"></i>
       <% end %>
     </p>
-  <% else %>
-    <p>
-      <%= link_to user_path(current_user.id), class: "btn btn-secondary" do %>
-        <i class="fa-solid fa-user-gear"></i>
-      <% end %>
-    </p>
-  <% end %>
+  <!--% else %>-->
+    <!--<p>-->
+      <!--%= link_to user_path(current_user.id), class: "btn btn-secondary" do %>-->
+        <!--<i class="fa-solid fa-user-gear"></i>-->
+      <!--% end %>-->
+    <!--</p>-->
+  <!--% end %>-->
 </div>
 
 

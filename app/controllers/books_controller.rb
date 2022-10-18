@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  
+    before_action :correct_user, only: [:edit, :update]
+  
   def new
     @book = Book.new
   end
@@ -12,7 +15,6 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = current_user
-      # flash.now[:alert] = "グループ名を入力してください"
       render :index, {book: @book , user: @user}
     end
 
@@ -62,6 +64,13 @@ class BooksController < ApplicationController
     private
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  # 他人の投稿編集画面変遷禁止
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
   end
 
 end
