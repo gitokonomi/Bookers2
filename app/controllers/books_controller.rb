@@ -5,18 +5,15 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-
     @book.user_id = current_user.id
 
-    # メモ　renderで一覧画面表示のための変数    @books = Book.all
-
     if @book.save
-      # flash[:notice] = "You have created book successfully."
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
       @books = Book.all
+      @user = current_user
+      # flash.now[:alert] = "グループ名を入力してください"
       render :index, {book: @book , user: @user}
-      # メモ　変数{book: @book , user: @user}
     end
 
   end
@@ -57,7 +54,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else
       render :edit
     end

@@ -20,3 +20,7 @@
   box-sizing: border-box;
 }
 
+li::before {
+  font-family: "Font Awesome 6 Free"; 
+  content: "f02d";
+}
