@@ -1,26 +1,40 @@
 <div class="container">
   <div class="row">
+    <!--部分テンプレート-->
     <div class="col-md-3">
-
-      <!--部分テンプレート-->
       <%= render 'books/newbook', {book: @book , user: @user} %>
-
     </div>
-    
+
+
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
+      <!-- ユーザー情報一覧テーブル -->
+      <table>
+	      <thead>
+		      <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thead>
 
-      <% @users.each do |user| %>
-        <div>
-          <p>image</p>
-          <p><%= image_tag user.get_profile_image(100,100) %><p/>
-
-          <p>name</p>
-          <p><%= user.name %></p>
-
-          <p><%= link_to "Show", user_path(user.id) %></p>
-        </div>
-      <% end %>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= image_tag user.get_profile_image(100,100) %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td>
+              <%= link_to "Show", user_path(user.id) %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </div>

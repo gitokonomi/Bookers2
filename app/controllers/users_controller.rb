@@ -6,15 +6,16 @@ class UsersController < ApplicationController
     # 部分テンプレート用
     # @usercurrent = current_user
     @book = Book.new
-
     # アソシエーション関係記述、特定ユーザの投稿
     @user = User.find(params[:id])
     @books = @user.books
   end
 
+
   def edit
     @user = User.find(params[:id])
   end
+
 
   def update
     @user = User.find(params[:id])
@@ -27,12 +28,15 @@ class UsersController < ApplicationController
     end
   end
 
+
   def index
     @users =User.all
     @book = Book.new
-        # 部分テンプレート用
+    # 部分テンプレート用
     @user = current_user
   end
+
+
 
 
   private

@@ -20,8 +20,49 @@
   box-sizing: border-box;
 }
 
-li::before {
-  font-family: "Font Awesome 6 Free";
-  /*本、home、users、bookopen、logout、*/
-  content: "f02d", "e3af", "f0c0", "f518", "f2f5";
+/*トップ及びヘッダーアイコン*/
+.fas fa-book {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-home {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-link {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-user-plus {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-sign-in-alt {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-users {
+  marjin: 0;
+  paddomg: 0;
+}
+
+fas fa-book-open {
+  marjin: 0;
+  paddomg: 0;
+}
+
+.fas fa-sign-out-alt {
+  marjin: 0;
+  paddomg: 0;
+}
+
+/*ユーザー編集*/
+.fas fa-user-cog {
+  marjin: 0;
+  paddomg: 0;
 }

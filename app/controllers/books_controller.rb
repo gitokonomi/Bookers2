@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
-  
+
     before_action :correct_user, only: [:edit, :update]
-  
+
+
   def new
     @book = Book.new
   end
+
 
   def create
     @book = Book.new(book_params)
@@ -17,24 +19,21 @@ class BooksController < ApplicationController
       @user = current_user
       render :index, {book: @book , user: @user}
     end
-
   end
-
 
 
   def show
     # 部分テンプレート用
     @booknew = Book.new
-
     @book = Book.find(params[:id])
     @user = @book.user
-
-
   end
+
 
   def edit
     @book = Book.find(params[:id])
   end
+
 
   def destroy
     @book = Book.find(params[:id])
@@ -43,14 +42,14 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+
   def index
     @books = Book.all
     @book = Book.new
-
     # 部分テンプレート用
     @user = current_user
-
   end
+
 
   def update
     @book = Book.find(params[:id])
@@ -60,6 +59,9 @@ class BooksController < ApplicationController
       render :edit
     end
   end
+
+
+
 
     private
   def book_params

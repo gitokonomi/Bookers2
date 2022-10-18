@@ -9,16 +9,15 @@
     </ul>
   <% end %>
 
-  <div class="row">
 
+  <div class="row">
+    <!--部分テンプレート-->
     <div class="col-md-3">
-      <!--部分テンプレート-->
       <%= render 'newbook', {book: @book , user: @user} %>
     </div>
 
-
+    <!--投稿一覧-->
     <div class="col-md-8 offset-md-1">
-      <!--投稿一覧-->
       <h2>Books</h2>
 
       <table>
@@ -49,5 +48,4 @@
           <% end %>
         </tbody>
       </table>
-
     </div>
