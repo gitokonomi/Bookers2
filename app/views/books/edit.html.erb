@@ -1,6 +1,6 @@
 <!--バリデーション-->
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
+  <%= @book.errors.count %> errors occurred.
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>

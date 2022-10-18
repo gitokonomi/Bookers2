@@ -34,20 +34,28 @@
             <!--ナビメニュー内容-->
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'Homes', user_path(current_user), class: 'nav-link text-dark' %>
+              <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
+                <i class="fa-solid fa-house-chimney"></i>Home
+              <% end %>
                 <!--(current_user.id)-->
               </li>
 
               <li class="nav-item">
-                <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
+                <%= link_to users_path, class: 'nav-link text-dark' do %>
+                  <i class="fa-solid fa-users"></i>Users
+                <% end %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "Books", books_path, class: 'nav-link text-dark' %>
+                <%= link_to books_path, class: 'nav-link text-dark' do %>
+                  <i class="fa-solid fa-book-open"></i>Books
+                <% end %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <i class="fa-solid fa-right-from-bracket"></i>Log out
+                <% end %>
               </li>
 
             <% else %>

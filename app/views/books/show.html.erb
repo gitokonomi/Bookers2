@@ -1,25 +1,53 @@
-<!--部分テンプレート-->
-<%= render 'books/newbook', {book: @booknew , user: @usercurrent} %>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <!--部分テンプレート-->
+      <%= render 'books/newbook', {book: @booknew , user: @user} %>
+    </div>
 
 
-<p>Book detail</p>
+    <div class="col-md-8 offset-md-1">
+      <p>Book detail</p>
 
+      <table>
+	      <thead>
+		      <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-<!--プロフ画像とリンク-->
-<%= link_to user_path(@book.user) do %>
-  <%= image_tag @user.get_profile_image(100,100) %>
-<% end %>
-<!--ユザ名前-->
-  <%= link_to @user.name, user_path(@book.user) %>
-<!--本タイトル-->
-  <%= link_to @book.title, book_path(@book) %>
-<!--本本文-->
-  <%= @book.body %>
-
-<% if @book.user_id == current_user.id %>
-  <!--Editボタン-->
-  <%= link_to "Edit", edit_book_path(@book) %>
-  <!--Destroyボタン-->
-  <%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "削除しますか？"} %>
-<% end %>
-
+        <tbody>
+          <tr>
+            <td>
+              <!--プロフ画像とリンク-->
+              <%= link_to user_path(@book.user) do %>
+                <%= image_tag @user.get_profile_image(100,100) %>
+              <% end %></br>
+              <!--ユザ名前-->
+              <%= link_to @user.name, user_path(@book.user) %>
+            </td>
+            <td>
+              <!--本タイトル-->
+              <%= link_to @book.title, book_path(@book) %>
+            </td>
+            <td>
+              <!--本本文-->
+              <%= @book.body %>
+            </td>
+            <td>
+              <% if @book.user_id == current_user.id %>
+              <!--Editボタン-->
+              <%= link_to "Edit", edit_book_path(@book) %>
+            </td>
+            <td>
+              <!--Destroyボタン-->
+              <%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "削除しますか？"} %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

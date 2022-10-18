@@ -21,6 +21,7 @@
 }
 
 li::before {
-  font-family: "Font Awesome 6 Free"; 
-  content: "f02d";
+  font-family: "Font Awesome 6 Free";
+  /*本、home、users、bookopen、logout、*/
+  content: "f02d", "e3af", "f0c0", "f518", "f2f5";
 }

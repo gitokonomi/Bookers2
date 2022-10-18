@@ -22,7 +22,6 @@ class BooksController < ApplicationController
 
   def show
     # 部分テンプレート用
-    @usercurrent = current_user
     @booknew = Book.new
 
     @book = Book.find(params[:id])
